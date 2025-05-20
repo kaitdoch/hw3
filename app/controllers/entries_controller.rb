@@ -11,16 +11,16 @@ class EntriesController < ApplicationController
     # assign user-entered form data to Entry's columns
     @entry["title"] = params["title"]
     @entry["description"] = params["description"]
-    @entry["occured_on"] = params["occured_on"]
+    @entry["occurred_on"] = params["occurred_on"]
 
     # assign relationship between place and entry
     @entry["place_id"] = params["place_id"]
-
+    
     # save entry row
     @entry.save
 
     # redirect user
-    redirect_to "/entries"
+    redirect_to "/places/#{@entry["place_id"]}"
   end
 
 end
