@@ -1,20 +1,20 @@
 class PlacesController < ApplicationController
 
   def index
-    @places = Places.all 
+    @places = Place.all 
     # find all Places rows
     # render places/index view
   end
   
   def show
     # find a Place
-    @place = Places.find_by({"id" => params["id"]})
-    @centries = Entry.where({"place_id" => @places["id"]})
+    @place = Place.find_by({"id" => params["id"]})
+    @entries = Entry.where({"place_id" => @place["id"]})
     # render places/show view with details about Place
   end
 
   def new
-    @place = Place.find_by({"id" => params["place_id"]})
+    @place = Place.new
     # render view with new Place form
   end
 
