@@ -17,7 +17,10 @@
 <!-- transfer state from the previous action to the next -->
   <p>
     <label for="place_id">Place</label>
-    <input type="text" name="place_id" value="<%= @place["name"] %>">
+<!-- Show the name (for display only, not submitted) -->
+    <input type="text" value="<%= @place["name"] %>" disabled>
+<!-- Submit the ID (invisible to the user) -->
+    <input type="hidden" name="place_id" value="<%= @place["id"] %>">
   </p>
 
   <button>Submit</button>
